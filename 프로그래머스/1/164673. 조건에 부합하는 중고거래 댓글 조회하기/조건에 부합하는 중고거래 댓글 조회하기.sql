@@ -1,2 +1,2 @@
 SELECT TITLE, ugb.BOARD_ID,REPLY_ID,ugr.WRITER_ID,ugr.CONTENTS, DATE_FORMAT(ugr.created_date, '%Y-%m-%d') AS CREATED_DATE from USED_GOODS_BOARD ugb join used_goods_reply ugr on ugb.board_id = ugr.board_id 
-where ugb.created_date >= '2022-10-01' and ugb.created_date <'2022-11-01' order by ugr.created_date asc, ugb.title;
+where ugb.created_date between '2022-10-01' and '2022-10-31' order by ugr.created_date asc, ugb.title;
