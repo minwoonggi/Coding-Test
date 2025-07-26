@@ -1,0 +1,12 @@
+SELECT ANIMAL_ID, NAME
+FROM (
+  SELECT 
+    ins.ANIMAL_ID, 
+    ins.NAME, 
+    TIMESTAMPDIFF(SECOND, ins.DATETIME, outs.DATETIME) AS duration
+  FROM ANIMAL_INS ins
+  JOIN ANIMAL_OUTS outs 
+    ON ins.ANIMAL_ID = outs.ANIMAL_ID
+) AS t
+ORDER BY duration DESC
+LIMIT 2;
