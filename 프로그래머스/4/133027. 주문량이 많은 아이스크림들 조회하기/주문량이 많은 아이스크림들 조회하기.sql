@@ -1,0 +1,1 @@
+select f.FLAVOR from FIRST_HALF f join  (SELECT FLAVOR, sum(TOTAL_ORDER) as total from  JULY group by FLAVOR)t on f.FLAVOR = t.FLAVOR order by t.total+f.TOTAL_ORDER desc limit 3;
